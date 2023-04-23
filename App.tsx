@@ -16,27 +16,27 @@ const tabs = [
   {
     name: '首页',
     screen: Debug,
-    icon: require('@src/images/menu_global.png'),
+    icon: require('@src/images/menu_tv.png'),
   },
   {
     name: '社区',
     screen: Debug,
-    icon: require('@src/images/menu_message.png'),
+    icon: require('@src/images/menu_fire.png'),
   },
   {
-    name: '书屋',
+    name: '文件',
     screen: Debug,
-    icon: require('@src/images/menu_book.png'),
+    icon: require('@src/images/menu_folder.png'),
   },
   {
-    name: '视频',
+    name: '行程',
     screen: Debug,
-    icon: require('@src/images/menu_player.png'),
+    icon: require('@src/images/menu_bike.png'),
   },
   {
-    name: '我的',
+    name: '设置',
     screen: Debug,
-    icon: require('@src/images/menu_i.png'),
+    icon: require('@src/images/menu_finger.png'),
   },
 ];
 

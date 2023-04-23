@@ -23,7 +23,7 @@ const iQinCarDashcam = props => {
     <StoreContext.Provider createStore={() => useStore}>
       <View style={{flex: 1}}>
         <StatusBar
-          translucent={true}
+          translucent={false}
           barStyle="dark-content"
           backgroundColor={'transparent'}
         />
