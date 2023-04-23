@@ -11,7 +11,7 @@ import {useStore} from './useStore';
 
 const StoreContext = createContext();
 
-const CarTracker = props => {
+const iQinCarDashcam = props => {
   useEffect(() => {
     console.log({DocumentPath: RNFS.DocumentDirectoryPath});
     // @ts-ignore
@@ -34,4 +34,4 @@ const CarTracker = props => {
   );
 };
 
-AppRegistry.registerComponent(appName, () => CarTracker);
+AppRegistry.registerComponent(appName, () => iQinCarDashcam);
