@@ -6,6 +6,8 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import {RootStacksProp} from './Stacks';
+import Files from '@src/screens/Files';
+import Settings from '@src/screens/Settings';
 
 const Tab = createBottomTabNavigator();
 interface AppProps {
@@ -25,7 +27,7 @@ const tabs = [
   },
   {
     name: '文件',
-    screen: Debug,
+    screen: Files,
     icon: require('@src/images/menu_folder.png'),
   },
   {
@@ -35,7 +37,7 @@ const tabs = [
   },
   {
     name: '设置',
-    screen: Debug,
+    screen: Settings,
     icon: require('@src/images/menu_finger.png'),
   },
 ];

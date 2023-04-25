@@ -25,7 +25,7 @@ const iQinCarDashcam = props => {
         <StatusBar
           translucent={false}
           barStyle="dark-content"
-          backgroundColor={'transparent'}
+          backgroundColor={'white'}
         />
         <Stacks />
         {/* <View style={{height: useHomeIndicatorHeight()}} /> */}
