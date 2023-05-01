@@ -1,14 +1,14 @@
 import {RouteProp} from '@react-navigation/native';
 import {RootStacksParams, RootStacksProp} from '@root/Stacks';
 import {useStore} from '@root/useStore';
-import {Centered, RadioButtons, Switcher, Tag, Tags} from '@src/components';
+import {RadioButtons, Switcher, Tag, Tags} from '@src/components';
 import {DEFAULT_SETTING} from '@src/types';
-import {useDip, useGoogleColors} from '@src/utils';
+import {useGoogleColors} from '@src/utils';
 import React, {useEffect, useState} from 'react';
 import {
+  Dimensions,
   ScrollView,
   StyleSheet,
-  Switch,
   Text,
   TouchableOpacity,
   View,
@@ -43,7 +43,6 @@ const Settings: React.FC<MyProps> = props => {
     } else {
       s = {...DEFAULT_SETTING, ...setting};
     }
-    console.log('Setting updater: ', s);
     mergeSetting(s);
   };
 
@@ -60,9 +59,7 @@ const Settings: React.FC<MyProps> = props => {
       children: (
         <View>
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>
-              是否开启录音
-            </Text>
+            <Text style={styles.textTitle}>是否开启录音</Text>
             <Switcher
               color={setting.ui.theme}
               status={setting.camera.audio}
@@ -72,9 +69,7 @@ const Settings: React.FC<MyProps> = props => {
             />
           </View>
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>
-              视频分辨率
-            </Text>
+            <Text style={styles.textTitle}>视频分辨率</Text>
             <RadioButtons
               color={setting.ui.theme}
               labels={[720, 1080]}
@@ -84,8 +79,9 @@ const Settings: React.FC<MyProps> = props => {
               }}
             />
           </View>
+          <View style={{height: 4}} />
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>视频质量</Text>
+            <Text style={styles.textTitle}>视频质量</Text>
             <RadioButtons
               color={setting.ui.theme}
               labels={['低', '中', '高']}
@@ -95,10 +91,10 @@ const Settings: React.FC<MyProps> = props => {
               }}
             />
           </View>
+          <View style={{height: 4}} />
           <View style={{}}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>
-              单个文件录制时长
-            </Text>
+            <Text style={styles.textTitle}>单个文件录制时长</Text>
+            <View style={{height: 6}} />
             <Tags
               color={setting.ui.theme}
               labels={[1, 2, 5, 10].map(it => `${it}分钟`)}
@@ -108,6 +104,7 @@ const Settings: React.FC<MyProps> = props => {
               }}
             />
           </View>
+          <View style={{height: 24}} />
         </View>
       ),
     },
@@ -118,24 +115,21 @@ const Settings: React.FC<MyProps> = props => {
       children: (
         <View>
           <View>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>
-              手机储存空间
+            <Text style={styles.textTitle}>手机储存空间</Text>
+            <View style={{height: 4}} />
+            <Text style={styles.textTitle}>
+              {`${b2GB(freeSpace)}/${b2GB(totalSpace)}`}
             </Text>
-            <Centered direction={'row'}>
-              <Text style={{fontSize: useDip(14), color: '#333', flex: 1}}>
-                {`${b2GB(freeSpace)}/${b2GB(totalSpace)}`}
-              </Text>
-              <Progress.Bar
-                progress={freeSpace / totalSpace}
-                width={158}
-                color={setting.ui.theme}
-              />
-            </Centered>
+            <Progress.Bar
+              progress={freeSpace / totalSpace}
+              width={Dimensions.get('screen').width * 0.72 - 24}
+              color={setting.ui.theme}
+            />
           </View>
+          <View style={{height: 10}} />
           <View style={{}}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>
-              最大循环录制储存空间
-            </Text>
+            <Text style={styles.textTitle}>最大循环录制储存空间</Text>
+            <View style={{height: 4}} />
             <Tags
               labels={[1, 2, 5, 10].map(it => `${it}GB`)}
               label={setting.storage.reuse}
@@ -145,6 +139,7 @@ const Settings: React.FC<MyProps> = props => {
               color={setting.ui.theme}
             />
           </View>
+          <View style={{height: 24}} />
         </View>
       ),
     },
@@ -154,12 +149,16 @@ const Settings: React.FC<MyProps> = props => {
       src: require('@src/images/settings_ui.png'),
       children: (
         <View>
-          <Text style={{fontSize: useDip(14), color: '#333'}}>主题颜色</Text>
+          <Text style={styles.textTitle}>主题颜色</Text>
+          <View style={{height: 4}} />
           <View
             style={{
               flexDirection: 'row',
               flexWrap: 'wrap',
               alignItems: 'center',
+              backgroundColor: '#f2f2f2',
+              borderRadius: 12,
+              justifyContent: 'center',
             }}>
             {Object.keys(useGoogleColors).map(it => (
               <TouchableOpacity
@@ -171,7 +170,7 @@ const Settings: React.FC<MyProps> = props => {
                 }}>
                 <Tag
                   textStyle={{color: useGoogleColors[it].dark}}
-                  style={{borderColor: useGoogleColors[it].light}}
+                  style={{backgroundColor: useGoogleColors[it].light}}
                   status={setting.ui.theme == useGoogleColors[it].dark}
                   color={useGoogleColors[it].dark}>
                   {useGoogleColors[it].name}
@@ -179,6 +178,7 @@ const Settings: React.FC<MyProps> = props => {
               </TouchableOpacity>
             ))}
           </View>
+          <View style={{height: 24}} />
         </View>
       ),
     },
@@ -189,7 +189,7 @@ const Settings: React.FC<MyProps> = props => {
       children: (
         <View>
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>速度信息</Text>
+            <Text style={styles.textTitle}>速度信息</Text>
             <Switcher
               color={setting.ui.theme}
               status={setting.mask.speed}
@@ -199,7 +199,7 @@ const Settings: React.FC<MyProps> = props => {
             />
           </View>
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>时间信息</Text>
+            <Text style={styles.textTitle}>时间信息</Text>
             <Switcher
               color={setting.ui.theme}
               status={setting.mask.time}
@@ -209,7 +209,7 @@ const Settings: React.FC<MyProps> = props => {
             />
           </View>
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>GPS信息</Text>
+            <Text style={styles.textTitle}>GPS信息</Text>
             <Switcher
               color={setting.ui.theme}
               status={setting.mask.gps}
@@ -219,7 +219,7 @@ const Settings: React.FC<MyProps> = props => {
             />
           </View>
           <View style={styles.viewItemLine}>
-            <Text style={{fontSize: useDip(14), color: '#333'}}>位置信息</Text>
+            <Text style={styles.textTitle}>位置信息</Text>
             <Switcher
               color={setting.ui.theme}
               status={setting.mask.address}
@@ -228,7 +228,9 @@ const Settings: React.FC<MyProps> = props => {
               }}
             />
           </View>
-          <Text style={{fontSize: useDip(14), color: '#333'}}>预览</Text>
+          <View style={{height: 6}} />
+          <Text style={styles.textTitle}>预览</Text>
+          <View style={{height: 4}} />
           <MaskPreviewer
             statuses={[
               setting.mask.speed,
@@ -237,6 +239,7 @@ const Settings: React.FC<MyProps> = props => {
               setting.mask.address,
             ]}
           />
+          <View style={{height: 24}} />
         </View>
       ),
     },
@@ -246,9 +249,8 @@ const Settings: React.FC<MyProps> = props => {
       src: require('@src/images/settings_other.png'),
       children: (
         <View>
-          <Text style={{fontSize: useDip(14), color: '#333'}}>
-            更新速度和位置信息频率
-          </Text>
+          <Text style={styles.textTitle}>更新速度和位置信息频率</Text>
+          <View style={{height: 4}} />
           <Tags
             color={setting.ui.theme}
             labels={[1, 2, 5, 10].map(it => `${it}秒`)}
@@ -257,6 +259,7 @@ const Settings: React.FC<MyProps> = props => {
               settingUpdater('other', 'interval', value);
             }}
           />
+          <View style={{height: 12}} />
         </View>
       ),
     },
@@ -271,8 +274,8 @@ const Settings: React.FC<MyProps> = props => {
   }, []);
 
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
-      <ScrollView>
+    <View style={{flex: 1, backgroundColor: 'white', paddingHorizontal: 12}}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Accordion
           expandMultiple={true}
           sections={ITEMS}
@@ -280,6 +283,7 @@ const Settings: React.FC<MyProps> = props => {
           renderSectionTitle={item => <View />}
           touchableComponent={TouchableOpacity}
           duration={618}
+          containerStyle={styles.viewItems}
           renderHeader={item => (
             <Grouper
               title={item.title}
@@ -287,6 +291,7 @@ const Settings: React.FC<MyProps> = props => {
               status={statuses.includes(item.index) ? 1 : 0}
             />
           )}
+          sectionContainerStyle={{marginVertical: 1}}
           renderContent={item => item.children}
           onChange={setStatuses}
         />
@@ -301,6 +306,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     marginVertical: 5,
+  },
+  viewItems: {
+    backgroundColor: 'white',
+    borderRadius: 12,
+  },
+  textTitle: {
+    fontSize: 14,
+    color: '#333',
   },
 });
 

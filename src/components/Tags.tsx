@@ -1,7 +1,6 @@
 import {useStore} from '@root/useStore';
-import {useDip} from '@src/utils';
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Centered from './Centered';
 import Tag from './Tag';
 
@@ -44,14 +43,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-  },
-  viewChild: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    height: useDip(40),
-    paddingHorizontal: 16,
   },
 });
 

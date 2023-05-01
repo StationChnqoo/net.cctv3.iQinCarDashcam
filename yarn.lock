@@ -1685,9 +1685,9 @@
     "react-is" "^16.13.0"
 
 "@react-navigation/elements@^1.3.3":
-  "integrity" "sha512-Lv2lR7si5gNME8dRsqz57d54m4FJtrwHRjNQLOyQO546ZxO+g864cSvoLC6hQedQU0+IJnPTsZiEI2hHqfpEpw=="
-  "resolved" "https://registry.npmmirror.com/@react-navigation/elements/-/elements-1.3.3.tgz"
-  "version" "1.3.3"
+  "integrity" "sha512-sui8AzHm6TxeEvWT/NEXlz3egYvCUog4tlXA4Xlb2Vxvy3purVXDq/XsM56lJl344U5Aj/jDzkVanOTMWyk4UA=="
+  "resolved" "https://registry.npmmirror.com/@react-navigation/elements/-/elements-1.3.17.tgz"
+  "version" "1.3.17"
 
 "@react-navigation/native-stack@^6.6.2":
   "integrity" "sha512-pFMuzhxbPml5MBvJVAzHWoaUkQaefAOKpuUnAs/AxNQuHQwwnxRmDit1PQLuIPo7g7DlfwFXagDHE1R0tbnS8Q=="
@@ -1833,6 +1833,14 @@
   "integrity" "sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w=="
   "resolved" "https://registry.npmmirror.com/@types/prop-types/-/prop-types-15.7.5.tgz"
   "version" "15.7.5"
+
+"@types/react-native-drawer@^2.5.5":
+  "integrity" "sha512-aJ0J2ayMfUSIvhRKg4GuKWF4XB5JCWaD8mTtM2aF4tPrG5c9aSPhREuZvKfbjBXY5EAvhrt4hwc8CxWiPOZhYQ=="
+  "resolved" "https://registry.npmmirror.com/@types/react-native-drawer/-/react-native-drawer-2.5.5.tgz"
+  "version" "2.5.5"
+  dependencies:
+    "@types/react" "*"
+    "@types/react-native" "*"
 
 "@types/react-native-simple-radio-button@^2.7.2":
   "integrity" "sha512-iH/EBAtH2XznNvh+eCNeIl2c1fW5ZGGe6XC4qcNCiqO7oBHVQuyCTrtg+xEN3uxwxxYFb8EXa0hez1UqOKSJiw=="
@@ -6231,7 +6239,7 @@
     "kleur" "^3.0.3"
     "sisteransi" "^1.0.5"
 
-"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.5.6", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.8.1":
+"prop-types@*", "prop-types@^15.5.10", "prop-types@^15.5.6", "prop-types@^15.5.8", "prop-types@^15.6.2", "prop-types@^15.7.2", "prop-types@^15.8.1":
   "integrity" "sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg=="
   "resolved" "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz"
   "version" "15.8.1"
@@ -6372,6 +6380,14 @@
   "integrity" "sha512-cVMZztFa2Qn6qpQa601W61CtUwZQ1KXfqCOeltejAWEXmgIWivC692WGSdtGudj4upSi1UgMSaGcvKjfcpdGjg=="
   "resolved" "https://registry.npmmirror.com/react-native-device-info/-/react-native-device-info-8.7.1.tgz"
   "version" "8.7.1"
+
+"react-native-drawer@^2.5.1":
+  "integrity" "sha512-cxcQNbSWy5sbGi7anSVp6EDr6JarOBMY9lbFOeLFeVYbONiudoqRKbgEsSDgSw3/LFCLvUXK5zdjXCOedeytxQ=="
+  "resolved" "https://registry.npmmirror.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz"
+  "version" "2.5.1"
+  dependencies:
+    "prop-types" "^15.5.8"
+    "tween-functions" "^1.0.1"
 
 "react-native-fast-image@^8.6.3":
   "integrity" "sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg=="
@@ -7479,6 +7495,11 @@
   "version" "3.21.0"
   dependencies:
     "tslib" "^1.8.1"
+
+"tween-functions@^1.0.1":
+  "integrity" "sha512-PZBtLYcCLtEcjL14Fzb1gSxPBeL7nWvGhO5ZFPGqziCcr8uvHp0NDmdjBchp6KHL+tExcg0m3NISmKxhU394dA=="
+  "resolved" "https://registry.npmmirror.com/tween-functions/-/tween-functions-1.2.0.tgz"
+  "version" "1.2.0"
 
 "type-check@^0.4.0", "type-check@~0.4.0":
   "integrity" "sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew=="

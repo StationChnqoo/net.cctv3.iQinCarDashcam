@@ -1,5 +1,4 @@
 import {useStore} from '@root/useStore';
-import {useDip} from '@src/utils';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
@@ -53,7 +52,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'white',
     justifyContent: 'space-between',
-    height: useDip(40),
+    height: 40,
     paddingHorizontal: 16,
   },
 });

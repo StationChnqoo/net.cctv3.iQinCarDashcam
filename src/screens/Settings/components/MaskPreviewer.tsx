@@ -1,11 +1,7 @@
-import { useStore } from '@root/useStore';
+import {useStore} from '@root/useStore';
 import moment from 'moment';
-import React, { useEffect } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, {useEffect} from 'react';
+import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import FastImage from 'react-native-fast-image';
 
 interface MyProps {
@@ -27,8 +23,11 @@ const MaskPreviewer: React.FC<MyProps> = props => {
     return function () {};
   }, [props]);
 
+  const WIDTH = Dimensions.get('screen').width * 0.72 - 24;
+  const HEIGHT = (WIDTH * 9) / 16;
+
   return (
-    <View style={{position: 'relative', width: 320, height: 180}}>
+    <View style={{position: 'relative', width: WIDTH, height: HEIGHT}}>
       <FastImage
         source={{
           uri: 'https://net-cctv3.oss-cn-qingdao.aliyuncs.com/net.cctv3.iQinCarDashcam/MaskPreviewBackground.jpg',

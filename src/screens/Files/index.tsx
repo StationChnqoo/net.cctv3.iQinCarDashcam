@@ -1,10 +1,8 @@
 import {RouteProp} from '@react-navigation/native';
 import {RootStacksParams, RootStacksProp} from '@root/Stacks';
 import {useStore} from '@root/useStore';
-import ToolBar from '@src/components/ToolBar';
-import {useDip} from '@src/utils';
-import React, {cloneElement, useState} from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 
 interface MyProps {
   navigation?: RootStacksProp;
@@ -24,8 +22,7 @@ const Files: React.FC<MyProps> = props => {
 
   return (
     <View style={{flex: 1}}>
-      <View style={{paddingVertical: 6, backgroundColor: 'white'}}>
-      </View>
+      <View style={{paddingVertical: 6, backgroundColor: 'white'}}></View>
     </View>
   );
 };

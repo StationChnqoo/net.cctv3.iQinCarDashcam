@@ -1,14 +1,6 @@
 import {useStore} from '@root/useStore';
-import {useDip} from '@src/utils';
 import React, {useEffect} from 'react';
-import {
-  Image,
-  ImageRequireSource,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, ImageRequireSource, StyleSheet, Text, View} from 'react-native';
 
 interface MyProps {
   title: string;
@@ -30,6 +22,7 @@ const Grouper: React.FC<MyProps> = props => {
     // console.log('New status from props: ', props.status);
     return function () {};
   }, [props]);
+
   return (
     <View style={styles.views}>
       <View style={styles.view}>
@@ -37,13 +30,13 @@ const Grouper: React.FC<MyProps> = props => {
           <Image
             source={src}
             style={{
-              height: useDip(24),
-              width: useDip(24),
+              height: 24,
+              width: 24,
               tintColor: 'rgba(0, 0, 0, 0.618)',
             }}
           />
-          <View style={{width: 12}} />
-          <Text style={{fontSize: useDip(16), color: '#333'}}>{title}</Text>
+          <View style={{width: 6}} />
+          <Text style={{fontSize: 16, color: '#333'}}>{title}</Text>
         </View>
         <Image
           source={
@@ -52,7 +45,7 @@ const Grouper: React.FC<MyProps> = props => {
               require('@src/images/common_row_down.png'),
             ][status]
           }
-          style={{height: useDip(20), width: useDip(20), tintColor: '#666'}}
+          style={{height: 20, width: 20, tintColor: '#666'}}
         />
       </View>
     </View>
@@ -67,7 +60,7 @@ const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 });
 

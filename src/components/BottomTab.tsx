@@ -1,6 +1,5 @@
 import {BottomTabBarButtonProps} from '@react-navigation/bottom-tabs';
 import {BottomTabItem} from '@src/types';
-import {useDip, useGoogleColors} from '@src/utils';
 import React, {useEffect, useRef} from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import * as Animatable from 'react-native-animatable';
@@ -12,12 +11,10 @@ interface BottomTabProps {
 }
 
 const BottomTab: React.FC<BottomTabProps & BottomTabBarButtonProps> = props => {
-  const {item, accessibilityState, onPress, index} = props;
+  const {item, accessibilityState, onPress, index, activeColor} = props;
   const selected = accessibilityState.selected;
   const tabRef = useRef<Animatable.View & View>(null);
   const textRef = useRef<Animatable.View & View>(null);
-  let {red, orange, green, mauve, brown} = useGoogleColors;
-  const colors = [red, orange, green, mauve, brown];
 
   useEffect(() => {
     if (selected) {
@@ -47,24 +44,22 @@ const BottomTab: React.FC<BottomTabProps & BottomTabBarButtonProps> = props => {
     <TouchableOpacity onPress={onPress} style={[styles.viewTab, {flex: 1}]}>
       <Animatable.View
         ref={tabRef}
-        style={[
-          {alignItems: 'center'},
-        ]}
+        style={[{alignItems: 'center'}]}
         useNativeDriver={true}>
         <Image
           source={item.icon}
           style={{
-            height: useDip(24),
-            width: useDip(24),
-            tintColor: selected ? colors[index].dark : '#666',
+            height: 24,
+            width: 24,
+            tintColor: selected ? activeColor : '#666',
           }}
         />
-        <View style={{height: useDip(4)}} />
+        <View style={{height: 4}} />
         <Animatable.View ref={textRef} useNativeDriver={true}>
           <Text
             style={{
-              fontSize: useDip(10),
-              color: selected ? colors[index].dark : '#999',
+              fontSize: 12,
+              color: selected ? activeColor : '#999',
             }}>
             {item.name}
           </Text>

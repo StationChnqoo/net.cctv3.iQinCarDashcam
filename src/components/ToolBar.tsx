@@ -1,6 +1,6 @@
 import {useStore} from '@root/useStore';
 import {AnyView} from '@src/types';
-import {useDip, useStatusBarHeight} from '@src/utils';
+import {useStatusBarHeight} from '@src/utils';
 import React from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
@@ -17,7 +17,7 @@ const ToolBar: React.FC<ToolBarProps> = props => {
     state.increasePopulation,
     state.setting,
   ]);
-  
+
   return (
     <>
       <View
@@ -33,7 +33,7 @@ const ToolBar: React.FC<ToolBarProps> = props => {
             style={styles.viewBack}
           />
         </TouchableOpacity>
-        <Text style={{fontSize: useDip(18), color: '#333', fontWeight: '500'}}>
+        <Text style={{fontSize: 18, color: '#333', fontWeight: '500'}}>
           {title}
         </Text>
         {moreView ?? <View style={styles.viewBack} />}
@@ -44,15 +44,15 @@ const ToolBar: React.FC<ToolBarProps> = props => {
 
 const styles = StyleSheet.create({
   viewBack: {
-    height: useDip(18),
-    width: useDip(18),
+    height: 18,
+    width: 18,
   },
   viewContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: 'white',
     justifyContent: 'space-between',
-    height: useDip(40),
+    height: 40,
     paddingHorizontal: 16,
   },
 });

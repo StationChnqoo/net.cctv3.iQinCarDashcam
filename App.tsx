@@ -1,15 +1,14 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import BottomTab from '@src/components/BottomTab';
+import {BottomTab} from '@src/components';
 import Debug from '@src/screens/Debug';
-import {useDip} from '@src/utils';
 import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import {RootStacksProp} from './Stacks';
 import Files from '@src/screens/Files';
-import Settings from '@src/screens/Settings';
-import {useStore} from './useStore';
+import HelloWorld from '@src/screens/HelloWorld';
 import {DEFAULT_SETTING} from '@src/types';
+import {RootStacksProp} from './Stacks';
+import {useStore} from './useStore';
 
 const Tab = createBottomTabNavigator();
 interface AppProps {
@@ -19,7 +18,7 @@ interface AppProps {
 const tabs = [
   {
     name: '首页',
-    screen: Debug,
+    screen: HelloWorld,
     icon: require('@src/images/menu_tv.png'),
   },
   {
@@ -28,19 +27,14 @@ const tabs = [
     icon: require('@src/images/menu_fire.png'),
   },
   {
-    name: '文件',
-    screen: Files,
-    icon: require('@src/images/menu_folder.png'),
-  },
-  {
     name: '行程',
     screen: Debug,
     icon: require('@src/images/menu_bike.png'),
   },
   {
-    name: '设置',
-    screen: Settings,
-    icon: require('@src/images/menu_finger.png'),
+    name: '文件',
+    screen: Files,
+    icon: require('@src/images/menu_folder.png'),
   },
 ];
 
@@ -72,12 +66,12 @@ const App: React.FC<AppProps> = props => {
             component={tabs[i].screen}
             options={{
               tabBarLabel: tabs[i].name,
-              tabBarBadge: Math.ceil(100 * Math.random()),
+              // tabBarBadge: Math.ceil(100 * Math.random()),
               tabBarButton: bottomTabBarButtonProps => (
                 <BottomTab
                   {...bottomTabBarButtonProps}
                   item={_}
-                  activeColor={'#987123'}
+                  activeColor={setting.ui.theme}
                   index={i}
                 />
               ),
@@ -91,7 +85,7 @@ const App: React.FC<AppProps> = props => {
 
 const styles = StyleSheet.create({
   viewTabBarStyle: {
-    height: useDip(56),
+    height: 56,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
