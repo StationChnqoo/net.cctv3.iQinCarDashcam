@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import {AnyView} from '@src/types';
 import {useStatusBarHeight} from '@src/utils';
 import React from 'react';
@@ -12,11 +11,6 @@ interface ToolBarProps {
 
 const ToolBar: React.FC<ToolBarProps> = props => {
   const {title, onBackPress, moreView} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <>

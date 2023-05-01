@@ -209,16 +209,6 @@ const Settings: React.FC<MyProps> = props => {
             />
           </View>
           <View style={styles.viewItemLine}>
-            <Text style={styles.textTitle}>GPS信息</Text>
-            <Switcher
-              color={setting.ui.theme}
-              status={setting.mask.gps}
-              onStatusChange={v => {
-                settingUpdater('mask', 'gps', v);
-              }}
-            />
-          </View>
-          <View style={styles.viewItemLine}>
             <Text style={styles.textTitle}>位置信息</Text>
             <Switcher
               color={setting.ui.theme}
@@ -235,7 +225,6 @@ const Settings: React.FC<MyProps> = props => {
             statuses={[
               setting.mask.speed,
               setting.mask.time,
-              setting.mask.gps,
               setting.mask.address,
             ]}
           />
@@ -277,7 +266,7 @@ const Settings: React.FC<MyProps> = props => {
     <View style={{flex: 1, backgroundColor: 'white', paddingHorizontal: 12}}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Accordion
-          expandMultiple={true}
+          // expandMultiple={true}
           sections={ITEMS}
           activeSections={statuses}
           renderSectionTitle={item => <View />}
@@ -291,7 +280,7 @@ const Settings: React.FC<MyProps> = props => {
               status={statuses.includes(item.index) ? 1 : 0}
             />
           )}
-          sectionContainerStyle={{marginVertical: 1}}
+          sectionContainerStyle={{marginVertical: 0}}
           renderContent={item => item.children}
           onChange={setStatuses}
         />

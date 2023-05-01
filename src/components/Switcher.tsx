@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {StyleSheet, Switch} from 'react-native';
 
@@ -12,11 +11,6 @@ interface MyProps {
 
 const Switcher: React.FC<MyProps> = props => {
   const {status = false, onStatusChange, color = '#987123'} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <Switch

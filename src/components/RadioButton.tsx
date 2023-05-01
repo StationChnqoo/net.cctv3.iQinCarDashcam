@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
@@ -10,11 +9,6 @@ interface MyProps {
 
 const RadioButton: React.FC<MyProps> = props => {
   const {status = false, color = '#987123', size = 16} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <View

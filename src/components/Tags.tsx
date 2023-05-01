@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Centered from './Centered';
@@ -13,12 +12,7 @@ interface MyProps {
 
 const Tags: React.FC<MyProps> = props => {
   const {label, labels, color = '#987123', onTagPress} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
-
+  
   return (
     <Centered direction={'row'}>
       {labels.map((it, i) => (

@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {StyleProp, StyleSheet, TouchableOpacity, ViewStyle} from 'react-native';
 
@@ -11,11 +10,6 @@ interface MyProps {
 
 const Centered: React.FC<MyProps> = props => {
   const {direction = 'column', children, onPress, style} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <TouchableOpacity

@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {StyleProp, StyleSheet, Text, TextStyle, View} from 'react-native';
 import Centered from './Centered';
@@ -20,12 +19,6 @@ const RadioButtons: React.FC<MyProps> = props => {
     color = '#987123',
     labelStyle,
   } = props;
-
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <Centered direction={'row'}>

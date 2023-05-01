@@ -1,12 +1,11 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {
   StyleProp,
   StyleSheet,
   Text,
+  TextStyle,
   View,
   ViewStyle,
-  TextStyle,
 } from 'react-native';
 
 interface MyProps {
@@ -19,11 +18,6 @@ interface MyProps {
 
 const Tag: React.FC<MyProps> = props => {
   const {status = false, color = '#987123', style, children, textStyle} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <View style={[styles.view, {borderColor: status ? color : '#ccc'}, style]}>

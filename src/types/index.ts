@@ -22,7 +22,6 @@ export interface Setting {
   mask: {
     speed: boolean;
     time: boolean;
-    gps: boolean;
     address: boolean;
   };
   other: {
@@ -87,7 +86,6 @@ export const DEFAULT_SETTING: Setting = {
     speed: true,
     time: true,
     address: true,
-    gps: false,
   },
   other: {
     interval: '2秒',

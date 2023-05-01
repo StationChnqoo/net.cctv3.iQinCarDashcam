@@ -17,7 +17,7 @@ const MaskPreviewer: React.FC<MyProps> = props => {
     state.increasePopulation,
     state.mergeLogs,
   ]);
-
+  
   useEffect(() => {
     // console.log('New status from props: ', props.status);
     return function () {};
@@ -40,7 +40,6 @@ const MaskPreviewer: React.FC<MyProps> = props => {
           '12KM/h',
           moment().format('YYYY-HH-DD HH:mm:ss'),
           '山东省聊城市东昌府区湖南路1号',
-          'GPS: 115.99568 36.434737',
         ]
           .filter((it, i) => statuses[i])
           .map(it => (

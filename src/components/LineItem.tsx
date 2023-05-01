@@ -1,4 +1,3 @@
-import {useStore} from '@root/useStore';
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
@@ -10,11 +9,6 @@ interface MyProps {
 
 const LineItem: React.FC<MyProps> = props => {
   const {status = false, color = '#987123', size = 16} = props;
-  const [bears, increasePopulation, setting] = useStore(state => [
-    state.bears,
-    state.increasePopulation,
-    state.setting,
-  ]);
 
   return (
     <View
@@ -46,14 +40,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-  },
-  viewChild: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'white',
-    justifyContent: 'space-between',
-    height: 40,
-    paddingHorizontal: 16,
   },
 });
 

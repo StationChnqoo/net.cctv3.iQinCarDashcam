@@ -60,5 +60,10 @@
   },
   "resolutions": {
     "react-devtools-core": "4.24.6"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets/fonts/"
+    ]
   }
 }

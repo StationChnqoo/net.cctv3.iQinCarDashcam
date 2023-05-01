@@ -1,6 +1,6 @@
-import {useStore} from '@root/useStore';
+import {H5} from '@src/components';
 import React, {useEffect} from 'react';
-import {Image, ImageRequireSource, StyleSheet, Text, View} from 'react-native';
+import {Image, ImageRequireSource, StyleSheet, View} from 'react-native';
 
 interface MyProps {
   title: string;
@@ -11,12 +11,6 @@ interface MyProps {
 /** https://www.iconfont.cn/collections/detail?spm=a313x.7781069.0.da5a778a4&cid=19238 */
 const Grouper: React.FC<MyProps> = props => {
   const {title, src, status} = props;
-  const [logs, bears, increasePopulation, mergeLogs] = useStore(state => [
-    state.logs,
-    state.bears,
-    state.increasePopulation,
-    state.mergeLogs,
-  ]);
 
   useEffect(() => {
     // console.log('New status from props: ', props.status);
@@ -36,7 +30,7 @@ const Grouper: React.FC<MyProps> = props => {
             }}
           />
           <View style={{width: 6}} />
-          <Text style={{fontSize: 16, color: '#333'}}>{title}</Text>
+          <H5>{title}</H5>
         </View>
         <Image
           source={
