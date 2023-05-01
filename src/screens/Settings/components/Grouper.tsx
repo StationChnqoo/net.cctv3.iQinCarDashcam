@@ -14,13 +14,11 @@ interface MyProps {
   title: string;
   src: ImageRequireSource;
   status: number;
-  onStatusPress: () => void;
-  children?: any;
 }
 
 /** https://www.iconfont.cn/collections/detail?spm=a313x.7781069.0.da5a778a4&cid=19238 */
 const Grouper: React.FC<MyProps> = props => {
-  const {title, src, status, onStatusPress, children} = props;
+  const {title, src, status} = props;
   const [logs, bears, increasePopulation, mergeLogs] = useStore(state => [
     state.logs,
     state.bears,
@@ -34,12 +32,7 @@ const Grouper: React.FC<MyProps> = props => {
   }, [props]);
   return (
     <View style={styles.views}>
-      <TouchableOpacity
-        style={styles.view}
-        activeOpacity={0.88}
-        onPress={() => {
-          onStatusPress();
-        }}>
+      <View style={styles.view}>
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Image
             source={src}
@@ -61,8 +54,7 @@ const Grouper: React.FC<MyProps> = props => {
           }
           style={{height: useDip(20), width: useDip(20), tintColor: '#666'}}
         />
-      </TouchableOpacity>
-      {children}
+      </View>
     </View>
   );
 };
@@ -75,7 +67,7 @@ const styles = StyleSheet.create({
   view: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'space-between'
   },
 });
 

@@ -2,12 +2,14 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import BottomTab from '@src/components/BottomTab';
 import Debug from '@src/screens/Debug';
 import {useDip} from '@src/utils';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View} from 'react-native';
 
 import {RootStacksProp} from './Stacks';
 import Files from '@src/screens/Files';
 import Settings from '@src/screens/Settings';
+import {useStore} from './useStore';
+import {DEFAULT_SETTING} from '@src/types';
 
 const Tab = createBottomTabNavigator();
 interface AppProps {
@@ -43,6 +45,17 @@ const tabs = [
 ];
 
 const App: React.FC<AppProps> = props => {
+  const [logs, bears, setting, mergeSetting] = useStore(state => [
+    state.logs,
+    state.bears,
+    state.setting,
+    state.mergeSetting,
+  ]);
+  useEffect(() => {
+    mergeSetting({...DEFAULT_SETTING, ...setting});
+    return function () {};
+  }, [props]);
+
   return (
     <View
       style={{

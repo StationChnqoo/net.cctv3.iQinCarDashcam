@@ -25,39 +25,6 @@ const Files: React.FC<MyProps> = props => {
   return (
     <View style={{flex: 1}}>
       <View style={{paddingVertical: 6, backgroundColor: 'white'}}>
-        <View
-          style={{
-            alignSelf: 'center',
-            flexDirection: 'row',
-            alignItems: 'center',
-          }}>
-          {['视频', '图片', '收藏'].map((it, i) => (
-            <TouchableOpacity
-              activeOpacity={0.88}
-              key={i}
-              style={{alignItems: 'center', marginHorizontal: 12}}
-              onPress={() => {
-                setIndex(i);
-              }}>
-              <Text
-                style={{
-                  fontSize: useDip(18),
-                  color: index == i ? '#333' : '#666',
-                }}>
-                {it}
-              </Text>
-              <View style={{height: 4}} />
-              <View
-                style={{
-                  height: 2,
-                  width: 32,
-                  borderRadius: 1,
-                  backgroundColor: index == i ? '#333' : 'white',
-                }}
-              />
-            </TouchableOpacity>
-          ))}
-        </View>
       </View>
     </View>
   );

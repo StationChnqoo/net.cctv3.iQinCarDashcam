@@ -7,7 +7,27 @@ export interface Account {
 }
 
 export interface Setting {
-  theme: string;
+  camera: {
+    audio: boolean;
+    resolution: number;
+    quality: string;
+    minutes: string;
+  };
+  storage: {
+    reuse: string;
+  };
+  ui: {
+    theme: string;
+  };
+  mask: {
+    speed: boolean;
+    time: boolean;
+    gps: boolean;
+    address: boolean;
+  };
+  other: {
+    interval: string;
+  };
 }
 
 export interface Log {
@@ -51,5 +71,25 @@ export const DEFAULT_ACCOUNT: Account = {
 };
 
 export const DEFAULT_SETTING: Setting = {
-  theme: '#987123',
+  camera: {
+    audio: true,
+    resolution: 720,
+    quality: '高',
+    minutes: '2分钟',
+  },
+  storage: {
+    reuse: '2GB',
+  },
+  ui: {
+    theme: '#987123',
+  },
+  mask: {
+    speed: true,
+    time: true,
+    address: true,
+    gps: false,
+  },
+  other: {
+    interval: '2秒',
+  },
 };

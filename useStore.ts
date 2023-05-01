@@ -36,6 +36,7 @@ const useStore = create<useZustand>(
           bears: state.bears,
           account: state.account,
           logs: state.logs,
+          setting: state.setting
         }),
       },
     ),
